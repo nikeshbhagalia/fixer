@@ -126,7 +126,7 @@ interface IState {
                   <form>
                     <input 
                       type="number" 
-                      placeholder="enter digits here"
+                      placeholder="Enter Amount Here"
                       onChange={this.updateCalculation.bind(event)}
                     />
                   </form>
