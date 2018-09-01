@@ -1,9 +1,15 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './App';
+import './App.css';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+export default class App extends React.Component<{}> {
+  public render() {
+    return (
+      <div className="container-fluid">
+      <div className="centreText">
+        {/* React components must have a wrapper node/element */}
+        <h1>( ͡° ͜ʖ ͡°)</h1>
+      </div>
+    </div>
+    );
+  }
+}

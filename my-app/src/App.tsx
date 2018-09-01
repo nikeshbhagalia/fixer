@@ -1,22 +1,79 @@
 import * as React from 'react';
 import './App.css';
 
-import logo from './logo.svg';
 
-class App extends React.Component {
+interface IState {
+  currency: any,
+  current: number,
+  dataSet: any,
+  showDropDown: boolean
+}
+
+export default class App extends React.Component<{}, IState> {
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      currency: "Choose a Currency to see Rate",
+      current: 0,
+      dataSet: [],
+      showDropDown: false
+    };
+    this.showDropDown = this.showDropDown.bind(this);
+  }
+
+  public componentDidMount()  {
+    fetch('http://data.fixer.io/api/latest?access_key=532168c196118164797206eac4e9996c', {
+      method: 'GET'})
+    .then(results => results.json())
+    .then(data => {
+      this.setState({dataSet: data.rates});
+    })
+  }
+
+  public showDropDown() {
+    this.setState({
+      showDropDown: !this.state.showDropDown
+    })
+  }
+  public onClick(value: any, cur: any){
+    this.showDropDown();
+    this.setState({
+      current: value,
+    });
+    this.setState({
+      currency: cur,
+    });
+  }
+
   public render() {
+    const { dataSet } = this.state; 
+    console.log(dataSet);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <button className="currency-button" onClick={this.showDropDown}>
+          {this.state.currency}
+        </button>
+      { this.state.showDropDown &&
+          <div className="dropdown">
+          {
+            Object.keys(dataSet).map(key => (
+              <li>
+                <a
+                  href={`#${dataSet[key]}`}
+                  onClick={this.onClick.bind(this, dataSet[key], key)
+                  }
+                  key={key}>
+                  {key}
+                </a>
+              </li>
+            ))
+          }
+        </div>
+        }
+      <p>Currency rate: {this.state.current}</p>
       </div>
     );
   }
 }
 
-export default App;
