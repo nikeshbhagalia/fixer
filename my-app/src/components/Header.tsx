@@ -1,21 +1,16 @@
+import {AppBar, Button, Toolbar, Typography} from '@material-ui/core/';
 import * as React from 'react';
-import { Nav, Navbar, NavItem } from 'react-bootstrap';
-import { IndexLinkContainer } from "react-router-bootstrap";
 import { Link } from 'react-router-dom';
 
 export const Header: React.StatelessComponent<{}> = () => {
     return (
-        <Navbar>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    <Link to="/">Rates</Link>
-                </Navbar.Brand>
-            </Navbar.Header>
-            <Nav>
-                <IndexLinkContainer to="/Conversion">
-                    <NavItem>Conversion</NavItem>
-                </IndexLinkContainer>
-            </Nav>
-        </Navbar>
+        <AppBar position="static" color="default">
+            <Toolbar>
+                <Typography variant="display2">
+                    <Link style={{color: "Black", textDecoration: 'none'}} to="/"><Button style={{fontSize:20}}> Rates </Button></Link>
+                    <Link style={{color: "Black", textDecoration: 'none'}} to="/Conversion"> <Button style={{fontSize:20}}> Conversion </Button></Link>
+                </Typography>
+            </Toolbar>
+        </AppBar>
     );
 }

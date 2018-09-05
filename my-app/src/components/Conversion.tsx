@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button';
 import * as React from 'react';
 import '.././App.css';
 
@@ -79,9 +80,9 @@ interface IState {
             <div className="App">
               <div className="flex">
                 <div className="dropdown-container">
-                  <button className="currency-button" onClick={this.showDropDown}>
-                        {this.state.currency}
-                  </button>
+                  <Button variant="contained" color="primary" className="currency-button" onClick={this.showDropDown}>
+                    {this.state.currency}
+                  </Button>
                   { this.state.showDropDown &&
                     <div className="dropdown">
                     {
@@ -101,9 +102,9 @@ interface IState {
                   }
                 </div>
                 <div className="dropdown-container">
-                  <button className="currency-button" onClick={this.showDropDown2}>
-                        {this.state.currency2}
-                  </button>
+                  <Button variant="contained" color="primary" className="currency-button" onClick={this.showDropDown2}>
+                    {this.state.currency2}
+                  </Button>
                   { this.state.showDropDown2 &&
                     <div className="dropdown">
                     {

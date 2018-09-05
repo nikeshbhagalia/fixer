@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button';
 import * as React from 'react';
 import './App.css';
 
@@ -51,9 +52,9 @@ export default class App extends React.Component<{}, IState> {
     console.log(dataSet);
     return (
       <div className="App">
-        <button className="currency-button" onClick={this.showDropDown}>
+        <Button variant="contained" color="primary" className="currency-button" onClick={this.showDropDown}>
           {this.state.currency}
-        </button>
+        </Button>
       { this.state.showDropDown &&
           <div className="dropdown">
           {

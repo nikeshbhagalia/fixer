@@ -1,34 +1,13 @@
 .App {
   text-align: center;
+  margin-top: 10px;
 }
 
 .currency-button {
-  border: 0;
-  border-radius: 25px;
   padding: 15px 20px;
   margin: 10px;
-  font-size: 16px;
-  background-color: #f34f54;
-  color: white;
-
-
 }
 
-.currency-button:hover {
-  border: 1px solid orange;
-  border-radius: 25px;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-}
-
-.currency-button:active {
-  border: 1px solid orange;
-  border-radius: 25px;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-}
 .dropdown {
   width: 275px;
   margin: 0 auto;
