@@ -1,2 +1,2 @@
 # Fixer
-Currency React Typescript Web App
+Currency React Typescript Web Application
